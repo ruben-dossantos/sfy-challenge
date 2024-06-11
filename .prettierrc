@@ -1,0 +1,38 @@
+{
+    "arrowParens": "always",
+    "printWidth": 80,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "endOfLine": "auto",
+    "semi": true,
+    "useTabs": false,
+    "overrides": [
+      {
+        "files": "*.ts",
+        "options": {
+          "parser": "typescript"
+        }
+      },
+      {
+        "files": "*.tsx",
+        "options": {
+          "parser": "typescript"
+        }
+      }
+    ],
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  
+    "importOrder": [
+      "<BUILTIN_MODULES>",
+      "^react$",
+      "^react-.*",
+      "<THIRD_PARTY_MODULES>",
+      "^src/(.*)$",
+      "^[./]",
+      ""
+    ],
+    "importOrderTypeScriptVersion": "5.4.3"
+  }
+  

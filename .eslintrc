@@ -1,0 +1,89 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import",
+    "@typescript-eslint",
+    "prettier",
+  ],
+  "rules": {
+    "linebreak-style": "off", // Don't play nicely with Windows.
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off", // Don't play nicely with tsconfig paths re-maps.
+    "import/no-cycle": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-key": "error",
+    "react/prop-types": "error",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-unstable-nested-components": ["warn", { "allowAsProps": true }],
+    "react/jsx-no-useless-fragment": ["warn", { "allowExpressions": true }],
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function",
+      },
+    ],
+    "no-restricted-exports": "off",
+    "default-param-last": "off",
+    "prefer-regex-literals": ["warn", { "disallowRedundantWrapping": true }],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+      },
+    ],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-plusplus": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "camelcase": [
+      "error",
+      {
+        "allow": ["clinic_prescriber"],
+      },
+    ],
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts?", "*.spec.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          { "devDependencies": true },
+        ],
+      },
+    },
+  ],
+  "settings": {
+    "react": {
+      "version": "detect",
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["src", "./src"]],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+  "ignorePatterns": ["src/types/**/**.ts"],
+}
